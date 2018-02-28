@@ -2,16 +2,18 @@
 
 -- Query 1
 select
-ProductName as "ProductName",
-(select avg(Discount) from OrderItems where OrderItems.ProductId=Product.ProductID) as "AverageDiscount"
-from Product;
+ProductName as ProductName,
+(select COALESCE(cast (avg(Discount) as Decimal(10,2)),0) from OrderItems where OrderItems.ProductId=Product.ProductID) as AverageDiscount
+from Product
+order by AverageDiscount desc;
 
 -- Query 2
 select
-PhoneNo as "PhoneNO",
-count(*) as "CountOfCustomers"
+PhoneNo as PhoneNO,
+count(*) as CountOfCustomers
 from Customer group by PhoneNo
-order by "CountOfCustomers" desc;
+having count(*) > 1
+order by CountOfCustomers desc;
 
 -- Query 3
 select

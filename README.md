@@ -1,6 +1,6 @@
 # Purdue CS 348 Information Systems - Project 1: SQL Queries and Relationships
 
-@Harris Christiansen (christih@purdue.edu) (HarrisChristiansen.com)  
+@Harris Christiansen (christih@purdue.edu) [HarrisChristiansen.com](http://www.harrischristiansen.com)  
 February 2018  
 
 ## Description
