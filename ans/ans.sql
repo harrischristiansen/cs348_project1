@@ -5,12 +5,11 @@ select ProductName, to_char(COALESCE(avg(cast (Discount as decimal(10,2))),0), '
 	order by AverageDiscount desc;
 
 /*---------------------------------Query 2———————————*/
-select
-PhoneNo as PhoneNO,
-count(*) as CountOfCustomers
-from Customer group by PhoneNo
-having count(*) > 1
-order by CountOfCustomers desc;
+select PhoneNo, count(CustomerId) as CountOfCustomers
+	from Customer
+	group by PhoneNo
+	having count(CustomerId) > 1
+	order by CountOfCustomers desc;
 
 -- /*---------------------------------Query 3———————————*/
 select p.productid, p.productname, s.firstname, s.lastname 
